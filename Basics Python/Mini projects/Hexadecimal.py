@@ -11,7 +11,13 @@ def hexToDec(hexNum):
     for char in hexNum:
         if char not in hexNumbers:
             return None
-    
+    convert = 0
+    power = len(hexNum)-1
+    for char in hexNum:
+        convert = convert + ((hexNumbers[char])*(16**power))
+        power = power - 1
+    return convert
+    '''
     if len(hexNum)==1:
         result = ((hexNumbers[hexNum[0]])*(16**0))
         return result
@@ -27,7 +33,7 @@ def hexToDec(hexNum):
     if len(hexNum)==4:
         result = (((16**3)*(hexNumbers[hexNum[0]]))+((16**2)*(hexNumbers[hexNum[1]]))+((16**1)*(hexNumbers[hexNum[2]]))+((hexNumbers[hexNum[3]])*(16**0)))
         return result
-    
+    '''
 
 print(hexToDec('B2A5'))
 print(hexToDec('B2A'))
